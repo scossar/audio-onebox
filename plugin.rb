@@ -3,6 +3,7 @@
 # version: 0.1
 # authors: scossar
 
+register_asset 'javascripts/discourse/lib/utilities.js'
 register_asset 'vendor/jPlayer/src/skin/pink.flag/scss/jplayer.pink.flag.scss'
 register_asset 'jplayer.pink.flag.jpg'
 register_asset 'jplayer.pink.flag.seeking.gif'
@@ -30,10 +31,15 @@ class Onebox::Engine::AudioOnebox
     "player-#{filename}"
   end
 
+  def button_id
+    "button-#{filename}"
+  end
+
   def to_html
+    # "<audio controls><source src='#{@url}'><a href='#{@url}'>#{@url}</a></audio>"
     <<-HTML
-    <div id="jquery_jplayer_1" class="jp-jplayer"></div>
-    <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+    <div id="#{track_id}" class="jp-jplayer" data-audio-src="#{@url}"></div>
+    <div id="#{player_id}" class="jp-audio" role="application" aria-label="media player">
       <div class="jp-type-single">
         <div class="jp-gui jp-interface">
           <div class="jp-volume-controls">
@@ -45,7 +51,10 @@ class Onebox::Engine::AudioOnebox
           </div>
           <div class="jp-controls-holder">
             <div class="jp-controls">
-              <button class="jp-play" role="button" tabindex="0">play</button>
+              <button class="jp-play" role="button" tabindex="0" id="#{button_id}" onclick="function() {
+              alert('this is a test');
+
+              }">play</button>
               <button class="jp-stop" role="button" tabindex="0">stop</button>
             </div>
             <div class="jp-progress">
@@ -68,29 +77,6 @@ class Onebox::Engine::AudioOnebox
           To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
         </div>
       </div>
-      <script>
-      handleAudio: function() {
-        $('##{track_id}').jPlayer({
-               ready: function () {
-          $(this).jPlayer("setMedia", {
-            title: "Bubble",
-            m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
-            oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
-          });
-        },
-        cssSelectorAncestor: "#jp_container_1",
-        swfPath: "/js",
-        supplied: "m4a, oga",
-        useStateClassSkin: true,
-        autoBlur: false,
-        smoothPlayBar: true,
-        keyEnabled: true,
-        remainingDuration: true,
-        toggleDuration: true
-      });
-        });
-      }
-      </script>
 </div>
     HTML
   end
