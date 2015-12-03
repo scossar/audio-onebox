@@ -4,7 +4,7 @@ Discourse.Utilities.isAudioFile = function(path) {
 
 Discourse.Utilities.uploadBaseUrl = function() {
   if (Discourse.S3BaseUrl) {
-    return 'https:' + Discourse.S3BaseUrl;
+    return 'http:' + Discourse.S3BaseUrl;
   } else {
     var protocol = window.location.protocol + '//',
       hostname = window.location.hostname,
