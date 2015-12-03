@@ -6,10 +6,10 @@
 register_asset 'javascripts/discourse/lib/utilities.js'
 register_asset 'stylesheets/jplayer.pink.flag.scss'
 # register_asset 'stylesheets/jplayer.blue.monday.scss'
-register_asset 'images/jplayer.pink.flag.jpg'
-register_asset 'images/jplayer.pink.flag.seeking.gif'
-# register_asset 'images/jplayer.blue.monday.jpg'
-# register_asset 'images/jplayer.blue.monday.seeking.gif'
+register_asset 'jplayer.black.flag.jpg'
+register_asset 'jplayer.pink.flag.seeking.gif'
+# register_asset 'jplayer.blue.monday.jpg'
+# register_asset 'jplayer.blue.monday.seeking.gif'
 register_asset 'javascripts/jquery.jplayer.js'
 
 class Onebox::Engine::AudioOnebox

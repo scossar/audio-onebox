@@ -42,7 +42,8 @@ $jplayer-images-base-url: "../images/" !default;
 	border-left:1px solid #554461;
 	border-right:1px solid #180a1f;
 	border-bottom:1px solid #180a1f;
-	background-color:#3a2a45;
+	//background-color:#3a2a45;
+	background-color: #383838;
 }
 .jp-audio {
 	width:201px;
@@ -97,7 +98,8 @@ $jplayer-images-base-url: "../images/" !default;
 .jp-interface {
 	position: relative;
 	width:100%;
-	background-color:#3a2a45; /* Required for the full screen */
+	//background-color:#3a2a45; /* Required for the full screen */
+	background-color: #383838;
 }
 
 
@@ -479,7 +481,8 @@ div.jp-video .jp-progress {
 .jp-current-time, .jp-duration {
 	width:70px;
 	font-size:.5em;
-	color: #8c7a99;
+	//color: #8c7a99;
+	color: #919191;
 }
 
 .jp-current-time {
