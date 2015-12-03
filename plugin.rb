@@ -5,15 +5,17 @@
 
 register_asset 'javascripts/discourse/lib/utilities.js'
 register_asset 'vendor/jPlayer/src/skin/pink.flag/scss/jplayer.pink.flag.scss'
+# register_asset 'vendor/jPlayer/src/skin/blue.monday/scss/jplayer.blue.monday.scss'
 register_asset 'jplayer.pink.flag.jpg'
 register_asset 'jplayer.pink.flag.seeking.gif'
+register_asset 'jplayer.blue.monday.jpg'
+register_asset 'jplayer.blue.monday.seeking.gif'
 register_asset 'vendor/jPlayer/src/javascript/jplayer/jquery.jplayer.js'
-# register_asset 'vendor/buzz/dist/buzz.js'
-# register_asset 'javascripts/process-audio.js'
 
 class Onebox::Engine::AudioOnebox
   include Onebox::Engine
-  matches_regexp /^(https?:)?\/\/.*\.(mp3|ogg|wav)(\?.*)?$/
+  # matches_regexp /^(https?:)?\/\/.*\.(mp3|ogg|wav)(\?.*)?/
+  matches_regexp /^(https?:)?\/\/.*\.(mp3|ogg|wav)(\?.*)/
 
   def always_https?
     WhitelistedGenericOnebox.host_matches(uri, WhitelistedGenericOnebox.https_hosts)
@@ -31,12 +33,7 @@ class Onebox::Engine::AudioOnebox
     "player-#{filename}"
   end
 
-  def button_id
-    "button-#{filename}"
-  end
-
   def to_html
-    # "<audio controls><source src='#{@url}'><a href='#{@url}'>#{@url}</a></audio>"
     <<-HTML
     <div id="#{track_id}" class="jp-jplayer" data-audio-src="#{@url}"></div>
     <div id="#{player_id}" class="jp-audio" role="application" aria-label="media player">
@@ -51,10 +48,7 @@ class Onebox::Engine::AudioOnebox
           </div>
           <div class="jp-controls-holder">
             <div class="jp-controls">
-              <button class="jp-play" role="button" tabindex="0" id="#{button_id}" onclick="function() {
-              alert('this is a test');
-
-              }">play</button>
+              <button class="jp-play" role="button" tabindex="0">play</button>
               <button class="jp-stop" role="button" tabindex="0">stop</button>
             </div>
             <div class="jp-progress">
@@ -72,10 +66,7 @@ class Onebox::Engine::AudioOnebox
         <div class="jp-details">
           <div class="jp-title" aria-label="title">&nbsp;</div>
         </div>
-        <div class="jp-no-solution">
-          <span>Update Required</span>
-          To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
-        </div>
+        <div class="jp-no-solution"></div>
       </div>
 </div>
     HTML
