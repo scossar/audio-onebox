@@ -3,6 +3,8 @@
 # version: 0.1
 # authors: scossar
 
+enabled_site_setting :audioplayer_enabled
+
 register_asset 'javascripts/discourse/lib/utilities.js'
 register_asset 'stylesheets/jplayer.pink.flag.scss'
 # register_asset 'stylesheets/jplayer.blue.monday.scss'
