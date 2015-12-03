@@ -9,7 +9,7 @@ export default {
         return this.$().find('.jp-jplayer').length;
       }.property(),
 
-      _initializeAudioPlayer: function () {
+      initializeAudioPlayer: function () {
         if (this.get('hasAudioPlayer')) {
           let $track = this.$().find('.jp-jplayer'),
             $player = this.$().find('.jp-audio'),
@@ -38,11 +38,7 @@ export default {
             toggleDuration: true
           });
         }
-      },
-
-      didInsertElement: function () {
-        this._initializeAudioPlayer();
-      },
+      }.on('didInsertElement', 'postViewUpdated')
     });
   }
 }
