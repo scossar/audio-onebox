@@ -22,6 +22,7 @@ Discourse.Utilities.filenameWithoutExtension = function(filename) {
 }
 
 Discourse.Utilities.getUploadMarkdown = function(upload) {
+  console.log('get upload markdown filename', upload.original_filename );
   if (Discourse.Utilities.isAnImage(upload.original_filename)) {
     return '<img src="' + upload.url + '" width="' + upload.width + '" height="' + upload.height + '">';
   } else if (Discourse.Utilities.isAudioFile(upload.original_filename)) {
