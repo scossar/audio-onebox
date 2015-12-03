@@ -17,7 +17,7 @@ export default {
             trackSrc = $track.attr('data-audio-src').split('?')[0],
             trackTitle = $track.attr('data-audio-src').split('=')[1],
             playerId = $player.attr('id'),
-            fileType = trackSrc.split('.')[1];
+            fileType = trackSrc.split('.').slice(-1)[0];
 
           $('#' + trackId).jPlayer({
             ready: function () {
