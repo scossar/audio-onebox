@@ -1,6 +1,6 @@
 ## Audio Onebox
 
-This plugin creates a custome audio player for audio files that are uploaded to
+This plugin creates a custom player for audio files that are uploaded to
 a Discourse forum. It works both for files that are stored on the server and for
 files that are stored with Amazon S3.
 
