@@ -62,7 +62,9 @@ class Onebox::Engine::AudioOnebox
         <div class="jp-details">
           <div class="jp-title" aria-label="title">&nbsp;</div>
         </div>
-        <div class="jp-no-solution"></div>
+        <div class="jp-no-solution">
+          Your browser is unable to play this filetype.
+        </div>
       </div>
     </div>
     HTML
