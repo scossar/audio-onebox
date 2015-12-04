@@ -39,13 +39,6 @@ export default {
           });
         }
       }.on('didInsertElement', 'postViewUpdated'),
-
-      destroyAudioPlayer: function () {
-        if (this.get('hasAudioPlayer')) {
-          let $trackId = this.$().find('.jp-jplayer').attr('id');
-          $('#' + trackId).jPlayer('destroy');
-        }
-      }.on('willDestroyElement')
     });
   }
 }
